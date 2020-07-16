@@ -1,0 +1,82 @@
+****************************READ ME******************************
+
+First of all, I would THANK YOU for giving me the opportunity to 
+present my approach to the following problem statement.
+
+
+Problem Statement II
+Classify movie reviews as positive or negative using the text of
+the review. 
+
+
+Environment: Google Colab w/ Hardware Accelerator (GPU enabled)
+
+
+Tools and Libraries used:
+- Tensorflow
+- Keras
+- numpy
+- matplotlib
+- seaborn
+
+
+DL Model: RNN LSTM
+
+Reasoning: Since this problem involes analysis on texts, which is 
+sequential data, I decided to fo with RNN approach with LSTM. The 
+reason to use LSTM network was because of their advantages in 
+long term dependencies. Since the dataset we are using has a lot 
+of parameters that rely on past weights, the classification 
+requires long term dependencies. 
+Now, there were other methods which i found on the web, but I 
+understood this approach better than the others. One model which 
+I tried was CNN 1D. But since starting to learn it from scratch 
+was difficult, I stuck to the approach I initially implemented.
+
+
+Project Description:
+Use the IMDb Dataset that contains the text of 50,000 movie 
+reviews from the Internet Movie Database. These are split into 
+25,000 reviews for training and 25,000 reviews for testing. The 
+training and testing sets are balanced. The program loads the 
+dataset into a RNN LSTM Model to classify the dataset into 
+positive or negative. For importing the IMDb dataset, I have 
+directly loaded it from the "keras.datasets". But we can download it
+=> https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz 
+Loading dataset directly from keras is convenient although not all 
+datasets are available in their database.
+
+
+Instructions to Run the Code:
+- Please find the attached python notebook named: 
+  "Sentiment_Ananlysis_IMDb_RNN_LSTM.ipynb".
+- Open it and set Hardware Accelerator to GPU enabled in the notebook 
+  settings for better speed.
+- For execution, do run all or sequentially run each code block.
+
+
+Results:
+The last block of the code provides the evaluation of the code 
+performance. 
+2 graphs will be printed which demonstrate the accuracy of the 
+model through epochs for both train and test datasets, as well as the 
+loss of the model for the same. 
+Finally, the overall accuracy of the model and total execution 
+time will be printed.
+
+If you notice the graphs, this is a clear case of model 
+overfitting. To tackle this issue, I tried 2 approaches:
+- L1 & L2 regularization
+- Reducing no. of epochs and adjusting the padding sizes
+
+But the approaches yeilded lower/poorer results
+- accuracy dropping from ~85% to 55% in case of Regularization
+- accuracy dropping from ~85% to 0.1% in case of padding sizes 
+  and epochs
+The execution time also became poorer, taking more than 50 min in 
+total compared to 10 min of current state of code.
+So, I decided to revert the code back. I will try to solve this 
+issue by applying some advanced methods of regularization as the 
+dataset doesn't have many parameters for dropouts.
+
+*****************************************************************
